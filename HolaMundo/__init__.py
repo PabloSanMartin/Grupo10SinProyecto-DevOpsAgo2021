@@ -1,0 +1,1 @@
+print('Hola mundo desde Eclipse utilizando Python')
