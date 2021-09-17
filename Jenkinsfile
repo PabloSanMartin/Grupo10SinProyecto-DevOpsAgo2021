@@ -36,7 +36,7 @@ pipeline {
      }
      stage("deploy") {
        agent any
-       enviorenment {
+       environment {
          VOLUME = '$(pwd)/HolaMundo:/src'
          IMAGE = 'cdrx/pyinstaller-linux:python2'
          //Crea 2 variables que se usan luego en los pasos del deploy
