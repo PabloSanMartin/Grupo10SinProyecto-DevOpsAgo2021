@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent any
   //Usamos none para indicar una imagen especifica en cada stage
   stages {
     stage("build") {
