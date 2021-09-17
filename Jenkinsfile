@@ -1,14 +1,10 @@
 pipeline {
-  agent none
+  agent any
   //Usamos none para indicar una imagen especifica en cada stage
   stages {
     stage("build") {
-      "agent any" {
-        docker {
           image 'python:2-alpine'
           //Indicamos usar el tipo de imagen de Python
-        }
-      }
       steps {
         sh 'python -m py_compile HolaMundo/HolaMundo.py'
         //Se compila la aplicacion
@@ -17,12 +13,8 @@ pipeline {
       }
     }
      stage("test") {
-      "agent any" {
-         docker {
           image 'qnib/pytest'
            //Una imagen de testing de python, un container separado
-        }
-      }
       steps {
         sh 'py.test --verbose --junit-xml test-reporte/resultado.xml HolaMundo/testHolaMundo.py' 
         //Imprime el resultado de testHolaMundo en un xml
@@ -58,6 +50,6 @@ pipeline {
        }
         
       
-    }
+     }
   }
 }
