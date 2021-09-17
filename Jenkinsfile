@@ -1,9 +1,9 @@
 pipeline {
-  agent any
+  agent none
   //Usamos none para indicar una imagen especifica en cada stage
   stages {
     stage("build") {
-      agent {
+      agent none{
         docker {
           image 'python:2-alpine'
           //Indicamos usar el tipo de imagen de Python
@@ -17,7 +17,7 @@ pipeline {
       }
     }
      stage("test") {
-      agent {
+      agent none{
          docker {
           image 'qnib/pytest'
            //Una imagen de testing de python, un container separado
