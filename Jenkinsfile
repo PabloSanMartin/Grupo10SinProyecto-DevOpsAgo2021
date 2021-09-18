@@ -5,7 +5,8 @@ pipeline {
     stage("build") {
       agent {
         docker {
-          image 'python:2-alpine'
+          image "python:3.7"
+          args '--user 0:0'
           //Indicamos usar el tipo de imagen de Python
         }
       }
