@@ -24,7 +24,7 @@ pipeline {
   }
   post {
         always {
-            sh 'docker stop mongo'
+            sh 'stop mongo'
         }
    }
 }
