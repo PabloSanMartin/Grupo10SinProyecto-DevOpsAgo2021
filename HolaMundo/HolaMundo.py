@@ -1,10 +1,8 @@
-import pymongo
-
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-mydb = myclient["mydatabase"]
-mycol = mydb["customers"]
-
-mylist = [
+import pymongo  # package for working with MongoDB
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["customersdb"]
+customers = db["customers"]
+customers_list = [
   { "name": "Amy", "address": "Apple st 652"},
   { "name": "Hannah", "address": "Mountain 21"},
   { "name": "Michael", "address": "Valley 345"},
@@ -18,8 +16,6 @@ mylist = [
   { "name": "Chuck", "address": "Main Road 989"},
   { "name": "Viola", "address": "Sideway 1633"}
 ]
-
-x = mycol.insert_many(mylist)
-
-#print list of the _id values of the inserted documents:
+x = customers.insert_many(customers_list)
+# print list of the _id values of the inserted documents:
 print(x.inserted_ids)
