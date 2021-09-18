@@ -1,11 +1,11 @@
 pipeline {
   agent {
-    docker { image 'node:16-alpine' }
+    docker { image 'python:2-alpine' }
   }
   stages {
-    stage('Test') {
+    stage('Insert') {
       steps {
-        sh 'node --version'
+        sh 'python -m py_compile HolaMundo/HolaMundo.py'
       }
     }
   }
