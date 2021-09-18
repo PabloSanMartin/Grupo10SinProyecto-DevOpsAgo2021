@@ -1,9 +1,6 @@
 import pymongo
-
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-mydb = myclient["mydatabase"]
-mycol = mydb["customers"]
-
-x = mycol.find_one()
-
-print(x)
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["customersdb"]
+customers = db["customers"]
+for x in customers.find():
+    print(x)
