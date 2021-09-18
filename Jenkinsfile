@@ -6,7 +6,7 @@ pipeline {
     stage('Prepare Mongo') {
       steps {
         script {
-          sh 'docker run -d -p 27017:27017 --name m1 mongo'
+          sh 'run -d -p 27017:27017 --name m1 mongo'
           sh 'pip install pymongo'
         }
       }
