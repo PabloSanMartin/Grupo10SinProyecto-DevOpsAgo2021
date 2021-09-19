@@ -3,7 +3,7 @@ pipeline {
     docker { image 'python:2-alpine' }
   }
   stages {
-    stage('Prepare Mongo') {
+    stage('Mongo') {
       steps {
         script {
           sh 'docker run --rm -d --name mongo mongo:latest'
@@ -11,12 +11,12 @@ pipeline {
         }
       }
     }
-    stage('Insert') {
+    stage('Insertar') {
       steps {
         sh 'python InsertarLista.py'
       }
     }
-    stage('View') {
+    stage('Ver') {
       steps {
         sh 'python MostrarLista.py'
       }
